@@ -48,9 +48,56 @@ HTML_CODE = r'''
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;background:#0f1419;color:#e8edf4}
-  #header{padding:18px 24px;background:linear-gradient(180deg,#161e2b,#1d2735);border-bottom:1px solid #2a3647}
-  #header h1{font-size:20px;font-weight:700;color:#fff;margin-bottom:4px}
-  #header p{font-size:13px;color:#8b9bb0}
+  #header{
+  padding:18px 24px;
+  padding-right:430px;
+  background:linear-gradient(180deg,#161e2b,#1d2735);
+  border-bottom:1px solid #2a3647;
+  position:relative;
+}
+#header h1{font-size:20px;font-weight:700;color:#fff;margin-bottom:4px}
+#header p{font-size:13px;color:#8b9bb0}
+
+#dashboardLink{
+  position:absolute;
+  right:24px;
+  top:50%;
+  transform:translateY(-50%);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 15px;
+  border-radius:9px;
+  background:#3dd6c4;
+  color:#0f1419;
+  font-size:13px;
+  font-weight:800;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  transition:all .15s ease;
+  white-space:nowrap;
+}
+
+#dashboardLink:hover{
+  background:#6ff1e3;
+  transform:translateY(-50%) translateY(-1px);
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+}
+
+@media (max-width:900px){
+  #header{
+    padding-right:24px;
+  }
+  #dashboardLink{
+    position:static;
+    transform:none;
+    margin-top:10px;
+  }
+  #dashboardLink:hover{
+    transform:none;
+  }
+}
   #controls{padding:14px 24px;background:#161e2b;border-bottom:1px solid #2a3647;display:flex;flex-wrap:wrap;gap:18px;align-items:center}
   .ctrl-group{display:flex;align-items:center;gap:8px}
   .ctrl-group label{font-size:12px;color:#8b9bb0;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
@@ -129,6 +176,14 @@ HTML_CODE = r'''
 <div id="header">
   <h1>전국 학교 망각 위험지수 지도</h1>
   <p>에빙하우스 망각곡선 v3 모델 · 줌인 시 자동으로 지역별 군집이 분해됩니다</p>
+  <a
+    id="dashboardLink"
+    href="https://3qcqmic2pa4ng8a2tpjf7x.streamlit.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    학사일정 기반 학습 공백 위험지수 대시보드 바로가기
+  </a>
 </div>
 <div id="controls">
   <div id="searchWrap">
